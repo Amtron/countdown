@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import CountDown from '../src/index';
+import ReactTimers from '../src/ReactTimers';
+import './css/index.css';
+
 class Index extends Component {
     render(){
         return (
-            <div>
-                <div>112121dsadsada2221</div>
-                    <CountDown timeEnd = {999999} />               
+            <div className="timeclick">
+                <ReactTimers timeEnd = {999999} />               
             </div>
             
         )

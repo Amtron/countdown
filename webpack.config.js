@@ -1,9 +1,5 @@
-'use strict';
-
-
 const webpack = require('webpack');
 const path = require('path');
-
 
 
 
@@ -12,7 +8,7 @@ const config = {
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: "index.js" 
+        filename: "ReactTimers.js" 
        },
 
     resolve: {

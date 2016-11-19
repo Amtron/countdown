@@ -1,5 +1,3 @@
-'use strict';
-
 const webpack = require('webpack');
 const path = require('path');
 const WebpackDevServer = require("webpack-dev-server");
@@ -28,13 +26,16 @@ const config = {
 
     plugin:[
         new webpack.HotModuleReplacementPlugin()
-    ],
+    ],  
 
     module: {
         loaders: [{
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loaders: ['babel']
+        },{
+            test: /\.css$/,
+            loader: 'style!css'
         }]
     }
 };

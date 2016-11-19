@@ -1,13 +1,18 @@
 import React,{Component} from "react";
 
 class Count extends Component {
+	static defaultProps = {
+		options: {
+			model: "standard",
+		}
+	}
     constructor(props){
         super(props);
         this.state = {
             timeEnd: this.props.timeEnd/1000
         }
     }
-    
+
     componentDidMount(){
         this.timeCount = setInterval(this.count.bind(this),1000)
     }
@@ -45,7 +50,7 @@ class Count extends Component {
     
     render(){
         const {d,h,m,s} = this.state;
-		const {className , style} = this.props
+		const {className, style, options} = this.props
  		let qs ,
 			qm ,
 			qh ,
@@ -54,14 +59,22 @@ class Count extends Component {
 		qm = m < 10 ? "0"+m : m;
 		qh = h < 10 ? "0"+h : h;
 		qd = d < 10 ? "0"+d : d;
+
+		let result ;
+		if( d!== undefined){
+			switch (options.model) {
+				case "standard" :
+					result = `${qh} : ${qm} : ${qs}`
+					break;
+				case "text":
+					result = d > 0 ? `${qd}d ${qh}h ${qm}m` :  `${qh}h ${qm}m ${qs}s`;
+					break;
+			}
+		}
+		
         return (
             <span className={className} style={style}>
-				{d>0 &&
-					`${qd}d ${qh}h ${qm}m`
-				}
-				{d==0 &&
-					`${qh}h ${qm}m ${qs}s`
-				}
+				{ result }
 			</span>
         )
     }
