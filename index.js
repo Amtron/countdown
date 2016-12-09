@@ -41,12 +41,26 @@ var Count = function (_Component) {
 		key: "count",
 		value: function count() {
 			var timeEnd = this.state.timeEnd;
+			var options = this.props.options;
 
+			if (options !== undefined) {
+				var atTimeCallback = options.atTimeCallback,
+				    _callback = options.callback;
+
+				if (atTimeCallback !== undefined) {
+					atTimeCallback.forEach(function (eachCallback) {
+						if (eachCallback.time === timeEnd) {
+							eachCallback.callback();
+						}
+					});
+				}
+			}
 			var d = void 0,
 			    h = void 0,
 			    m = void 0,
 			    s = void 0,
 			    rest = void 0;
+
 			if (timeEnd > 0) {
 				rest = timeEnd;
 				s = Math.floor(rest % 60);
@@ -66,8 +80,8 @@ var Count = function (_Component) {
 				});
 			} else {
 				clearInterval(this.timeCount);
-				if (this.props.callback != undefined) {
-					this.props.callback();
+				if (callback !== undefined) {
+					callback();
 				}
 			}
 		}
