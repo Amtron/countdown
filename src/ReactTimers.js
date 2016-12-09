@@ -17,9 +17,19 @@ class Count extends Component {
         this.timeCount = setInterval(this.count.bind(this),1000)
     }
     count() {
-        const { timeEnd } = this.state;
+        const {timeEnd} = this.state;
+		const {options, callback} = this.props;
+		if(options !== undefined) {
+			const {atTimeCallback} = options;
+			if ( typeof atTimeCallback !== "undefined") {
+					if(atTimeCallback.time === timeEnd * 1000){
+						atTimeCallback.callback();
+					}
+			}
+		}
         let d,h,m,s,rest;
-        if( timeEnd >0 ){
+		
+        if( timeEnd >=0 ){
 			rest = timeEnd;
 			s = Math.floor(rest % 60);
 			rest = rest/60;
@@ -38,8 +48,8 @@ class Count extends Component {
 			})
 		} else {
 			clearInterval(this.timeCount)
-            if(this.props.callback != undefined) {
-                this.props.callback()
+            if( typeof callback === "function"){
+                callback()
             }
 		}
     }
@@ -61,6 +71,9 @@ class Count extends Component {
 		qd = d < 10 ? "0"+d : d;
 
 		let result ;
+		if(options.model ===undefined){
+			options.model = "standard";
+		}
 		if( d!== undefined){
 			switch (options.model) {
 				case "standard" :
