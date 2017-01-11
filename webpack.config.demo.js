@@ -21,10 +21,14 @@ const config = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
 
-    plugin:[
+    performance: {
+        hints: false
+    },
+
+    plugins:[
         new webpack.HotModuleReplacementPlugin()
     ],  
 
@@ -32,10 +36,10 @@ const config = {
         loaders: [{
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            loaders: ['babel']
+            loaders: ['babel-loader']
         },{
             test: /\.css$/,
-            loader: 'style!css'
+            loader: 'style-loader!css-loader'
         }]
     }
 };

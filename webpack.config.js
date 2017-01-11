@@ -4,18 +4,21 @@ const path = require('path');
 
 
 const config = {
-    entry: path.join(__dirname, '/src/index.js'),
+    entry: path.join(__dirname, '/src/ReactTimers.tsx'),
 
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'SRC'),
         filename: "ReactTimers.js" 
        },
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: [ '.js', '.jsx']
+    },
+    externals: {
+        "react": "React"
     },
 
-    plugins: [ 
+    plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false },
             output: { comments: false }
@@ -23,11 +26,12 @@ const config = {
     ],
 
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loaders: ['babel']
-        }]
+        loaders: [
+        {
+            test: /\.tsx?$/,
+            loader: 'awesome-typescript-loader'
+        }
+        ]
     }
 };
 

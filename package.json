@@ -2,11 +2,10 @@
   "name": "react-countdown-timers",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "/src/ReactTimers",
   "scripts": {
     "demo": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.demo.js --hot --inline",
     "build": "NODE_ENV=production webpack --config webpack.config.js --progress --colors -p",
-    "build-babel": "babel ./src/ReactTimers.js --out-file index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,7 +30,13 @@
     "react-dom": "^15.4.0",
     "style-loader": "^0.13.1",
     "uglify-js": "^2.7.4",
-    "webpack": "^1.14.0",
+    "webpack": "2.2.0-rc.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "@types/react": "^15.0.0",
+    "@types/react-dom": "^0.14.20",
+    "awesome-typescript-loader": "^3.0.0-beta.18",
+    "css-loader": "^0.26.1"
   }
 }

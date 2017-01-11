@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import ReactTimers from '../src/ReactTimers';
+import ReactTimers from '../dist/ReactTimers';
 import './css/index.css';
 
 class Index extends Component {

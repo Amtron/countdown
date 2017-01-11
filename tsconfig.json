@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "outFile": "./src/index.js",
+        "types": [
+            "react",
+            "react-dom"
+        ]
+    },
+    "include": [
+        "./src/*"
+    ],
+    "exclude": [
+		"node_modules",
+		"./dist"
+	]
+}
