@@ -6,7 +6,7 @@ interface CountProps {
 	timeEnd: number;
 	callback?: Function;
 	options: {
-		model: string;
+		model?: string;
 		atTimeCallback?: {
 			time: number;
 			callback: Function;
