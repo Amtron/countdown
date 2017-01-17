@@ -12,18 +12,8 @@ const config = {
        },
 
     resolve: {
-        extensions: ['.js' '.jsx' ,'.ts', '.tsx']
+        extensions: ['.ts', '.tsx']
     },
-    externals: {
-        "react": "React"
-    },
-
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: { warnings: false },
-            output: { comments: false }
-        })
-    ],
 
     module: {
         loaders: [

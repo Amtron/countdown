@@ -4,11 +4,11 @@
         "target": "es5",
         "noImplicitAny": true,
         "noImplicitReturns": true,
+        "allowSyntheticDefaultImports": true,
         "removeComments": true,
         "experimentalDecorators": true,
         "jsx": "react",
         "sourceMap": true,
-        "strictNullChecks": true,
         "outFile": "./src/index.js",
         "types": [
             "react",
@@ -20,7 +20,6 @@
         "./demo/*"
     ],
     "exclude": [
-		"node_modules",
-		"./dist"
+		"node_modules"
 	]
 }

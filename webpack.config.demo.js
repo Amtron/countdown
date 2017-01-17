@@ -5,12 +5,16 @@ const WebpackDevServer = require("webpack-dev-server");
 
 const config = {
     devtool:"cheap-module-eval-source-map",
-    entry: './demo/index.tsx',
-
+    entry: path.join(__dirname, 'demo/index.tsx'),
+    output: {
+        path: path.join(__dirname, "/"),
+        publicPath: "/",
+        filename: 'bundle.js'
+    },
     devServer:{
+        port:"3000",
         historyApiFallback:true,
         hot:true,
-        inline:true,
         progress:true,
     },
 

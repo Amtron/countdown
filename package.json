@@ -5,7 +5,7 @@
   "main": "/src",
   "scripts": {
     "demo": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.demo.js --hot --inline",
-    "build": "NODE_ENV=production webpack --config webpack.config.js --progress --colors -p",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --progress --colors ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,7 +30,7 @@
     "react-dom": "^15.4.0",
     "style-loader": "^0.13.1",
     "uglify-js": "^2.7.4",
-    "webpack": "^2.2.0-rc.3",
+    "webpack": "^2.2.0-rc.7",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {

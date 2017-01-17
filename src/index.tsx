@@ -1,12 +1,11 @@
 import * as React from "react";
-
 interface CountProps {
 	className?: string;
 	style?: React.CSSProperties;
 	timeEnd: number;
 	callback?: Function;
+	model?: string;
 	options?: {
-		model?: string;
 		atTimeCallback?: {
 			time: number;
 			callback: Function;
@@ -16,24 +15,18 @@ interface CountProps {
 
 interface CountState {
 	timeEnd: number;
-	d: number | string;
-	h: number | string;
-	m: number | string;
-	s: number | string;
+	d?: number | string;
+	h?: number | string;
+	m?: number | string;
+	s?: number | string;
 }
 
 class Count extends React.Component<CountProps, any> {
 	static defaultProps = {
-		options: {
-			model: "standard",
-		}
+		model: "standard",
 	}
     state: CountState = {
 		timeEnd: this.props.timeEnd/1000,
-		d: 0,
-		h: 0,
-		m: 0,
-		s: 0
 	}
 	timeCount:any;
     componentDidMount(){
@@ -84,7 +77,7 @@ class Count extends React.Component<CountProps, any> {
     
     render(){
         const {d,h,m,s} = this.state;
-		const {className, style, options} = this.props
+		const {className, style, options, model} = this.props
  		let qs ,
 			qm ,
 			qh ,
@@ -95,8 +88,8 @@ class Count extends React.Component<CountProps, any> {
 		qd = d < 10 ? "0"+d : d;
 
 		let result ;
-		if( d!== undefined && options !== undefined){
-			switch (options.model) {
+		if( d!== undefined){
+			switch (model) {
 				case "standard" :
 					result = `${qh} : ${qm} : ${qs}`
 					break;
@@ -105,7 +98,7 @@ class Count extends React.Component<CountProps, any> {
 					break;
 			}
 		}
-		
+
         return (
             <span className={className} style={style}>
 				{ result }
