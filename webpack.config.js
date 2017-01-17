@@ -4,15 +4,15 @@ const path = require('path');
 
 
 const config = {
-    entry: path.join(__dirname, '/src/ReactTimers.tsx'),
+    entry: path.join(__dirname, '/src/index.tsx'),
 
     output: {
-        path: path.join(__dirname, 'SRC'),
-        filename: "ReactTimers.js" 
+        path: path.join(__dirname, 'src'),
+        filename: "index.js" 
        },
 
     resolve: {
-        extensions: [ '.js', '.jsx']
+        extensions: ['.js' '.jsx' ,'.ts', '.tsx']
     },
     externals: {
         "react": "React"

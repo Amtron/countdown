@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
-import ReactTimers from '../src/ReactTimers';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import ReactTimers from '../src/index';
 import './css/index.css';
 
-class Index extends Component<any, any> {
+class Index extends React.Component<any, any> {
 
     render(){
         

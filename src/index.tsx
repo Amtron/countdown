@@ -5,7 +5,7 @@ interface CountProps {
 	style?: React.CSSProperties;
 	timeEnd: number;
 	callback?: Function;
-	options: {
+	options?: {
 		model?: string;
 		atTimeCallback?: {
 			time: number;
@@ -95,7 +95,7 @@ class Count extends React.Component<CountProps, any> {
 		qd = d < 10 ? "0"+d : d;
 
 		let result ;
-		if( d!== undefined){
+		if( d!== undefined && options !== undefined){
 			switch (options.model) {
 				case "standard" :
 					result = `${qh} : ${qm} : ${qs}`

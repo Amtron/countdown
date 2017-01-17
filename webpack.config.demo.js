@@ -5,13 +5,7 @@ const WebpackDevServer = require("webpack-dev-server");
 
 const config = {
     devtool:"cheap-module-eval-source-map",
-    entry: './demo/index.js',
-
-    output: {
-        path: path.join(__dirname, 'dist'),
-        publicPath: "/dist/",
-        filename: "bundle.js" 
-       },
+    entry: './demo/index.tsx',
 
     devServer:{
         historyApiFallback:true,
@@ -21,7 +15,7 @@ const config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx' ,'.ts', '.tsx']
     },
 
     performance: {
@@ -34,9 +28,9 @@ const config = {
 
     module: {
         loaders: [{
-            test: /\.jsx?$/,
+            test: /\.tsx?$/,
             exclude: /node_modules/,
-            loaders: ['babel-loader']
+            loaders: ['awesome-typescript-loader']
         },{
             test: /\.css$/,
             loader: 'style-loader!css-loader'
